@@ -815,13 +815,6 @@ footer {
   justify-content: center;
 }
 
-@media (max-width: 420px) {
-  .google-btn-wrapper {
-    transform: scale(0.85);
-    transform-origin: center;
-  }
-}
-
 /* Don't have an account text */
 .dont-have {
     display: flex;

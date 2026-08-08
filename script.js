@@ -69,3 +69,44 @@ function handleCredentialResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
     window.location.href = "home.html";
 }
+
+// 1. I-load ang Facebook SDK nang asynchronous
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : 1800963204486932, // Palitan ito ng Facebook App ID mo galing sa FB Developers
+    cookie     : true,
+    xfbml      : true,
+    version    : 'v18.0'
+  });
+};
+
+// I-load ang SDK script sa background
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "https://connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+// 2. Event listener para sa Facebook login button kapag pinindot
+document.addEventListener('DOMContentLoaded', () => {
+  const fbBtn = document.getElementById('fbLoginBtn');
+  
+  if (fbBtn) {
+    fbBtn.addEventListener('click', () => {
+      FB.login(function(response) {
+        if (response.authResponse) {
+          // Kapag matagumpay na nag-log in ang user
+          FB.api('/me', {fields: 'name,email'}, function(userInfo) {
+            alert('Welcome, ' + userInfo.name + '!');
+            // Dito mo na pwedeng ilagay ang susunod na gagawin (hal. itago ang modal o i-redirect)
+          });
+        } else {
+          // Kapag kinansela o hindi itinuloy ng user
+          console.log('User cancelled login.');
+        }
+      }, {scope: 'public_profile,email'});
+    });
+  }
+});
