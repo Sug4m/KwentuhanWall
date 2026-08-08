@@ -815,39 +815,45 @@ footer {
   justify-content: center;
 }
 
-/* Container para sa Google at Facebook buttons */
+/* --- Social Login Grid Container --- */
 .social-login-container {
-    display: flex;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Eksaktong hati sa dalawa */
+    gap: 10px;
+    width: 100%;
+    margin: 15px 0;
+    box-sizing: border-box;
     align-items: center;
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 15px;
 }
 
-/* Pantayin ang laki ng dalawang button para maging balance */
-.social-login-container > * {
-    flex: 1;
-    width: 100%;
+/* Siguraduhing sakop ng Google button ang buong column cell nito */
+.google_btn, 
+.google-btn-wrapper, 
+.g_id_signin {
+    width: 100% !important;
 }
 
-/* Styling para sa Facebook button para pumantay sa Google button style */
+.g_id_signin iframe {
+    width: 100% !important;
+}
+
+/* --- Facebook Button Styling --- */
 .fb-login-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Distansya ng logo at text */
+    gap: 8px;
     width: 100%;
-    height: 40px;
+    height: 40px; /* Pantay sa standard height ng Google button */
     background-color: #1877f2;
     color: #ffffff;
     border: none;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
     box-sizing: border-box;
-    transition: background-color 0.2s ease;
+    white-space: nowrap;
 }
 
 .fb-login-btn:hover {
@@ -855,26 +861,16 @@ footer {
 }
 
 .fb-icon {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
     flex-shrink: 0;
-    fill: #ffffff; /* Kulay puti ng logo */
-    width: 18px;
-    height: 18px;
 }
 
-/* --- Responsive Design para sa Mobile --- */
-@media screen and (max-width: 480px) {
-    .fb-login-btn {
-        font-size: 13px; /* Medyo liliit ang text para hindi sumobra */
-        height: 38px;
-        padding: 0 10px;
-    }
-}
-
-/* --- RESPONSIVE DESIGN (Para sa Mobile View) --- */
-@media screen and (max-width: 480px) {
+/* --- RESPONSIVE MEDIA QUERY (Mobile View) --- */
+@media screen and (max-width: 576px) {
     .social-login-container {
-        flex-direction: column; /* Ginagawang patayo kapag mobile */
-        gap: 10px;
+        grid-template-columns: 1fr; /* Magiging 1 column na lang (papatong) kapag mobile */
     }
 }
 
