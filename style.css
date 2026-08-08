@@ -815,6 +815,69 @@ footer {
   justify-content: center;
 }
 
+/* Container para sa Google at Facebook buttons */
+.social-login-container {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Pantayin ang laki ng dalawang button para maging balance */
+.social-login-container > * {
+    flex: 1;
+    width: 100%;
+}
+
+/* Styling para sa Facebook button para pumantay sa Google button style */
+.fb-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Distansya ng logo at text */
+    width: 100%;
+    height: 40px;
+    background-color: #1877f2;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+}
+
+.fb-login-btn:hover {
+    background-color: #165fe5;
+}
+
+.fb-icon {
+    flex-shrink: 0;
+    fill: #ffffff; /* Kulay puti ng logo */
+    width: 18px;
+    height: 18px;
+}
+
+/* --- Responsive Design para sa Mobile --- */
+@media screen and (max-width: 480px) {
+    .fb-login-btn {
+        font-size: 13px; /* Medyo liliit ang text para hindi sumobra */
+        height: 38px;
+        padding: 0 10px;
+    }
+}
+
+/* --- RESPONSIVE DESIGN (Para sa Mobile View) --- */
+@media screen and (max-width: 480px) {
+    .social-login-container {
+        flex-direction: column; /* Ginagawang patayo kapag mobile */
+        gap: 10px;
+    }
+}
+
 /* Don't have an account text */
 .dont-have {
     display: flex;
