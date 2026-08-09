@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Elements
     const loginModal = document.getElementById('loginModal');
-    const openModalBtns = document.querySelectorAll('.open-modal-btn'); // Lahat ng button na magbubukas ng modal
+    const openModalBtns = document.querySelectorAll('.open-modal-btn'); 
     const closeModalBtn = document.getElementById('closeModalBtn'); 
     const loginSubmitBtn = document.getElementById('loginSubmitBtn');
     const emailInput = document.getElementById('emailInput');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const eyeOffIcon = document.getElementById('eyeOffIcon');
     const eyeIcon = document.getElementById('eyeIcon');
 
-    // 1. BUBUKSAN ang Modal kapag pinindot ang Log In o Get Started buttons
+    // 1. Open Modal
     openModalBtns.forEach(button => {
         button.addEventListener('click', function (e) {
             e.preventDefault();
@@ -21,14 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 2. ISASARA ang Modal kapag pinindot ang X
+    // 2. Close modal
     if (closeModalBtn && loginModal) {
         closeModalBtn.addEventListener('click', function () {
             loginModal.style.display = 'none';
         });
     }
 
-    // Isara din ang modal kapag pinindot ang background sa labas
     if (loginModal) {
         loginModal.addEventListener('click', function (e) {
             if (e.target === loginModal) {
@@ -64,23 +63,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// 5. Google Sign-In Callback Response (Nasa labas para ma-access global ni Google)
+// 5. Google Sign-In 
 function handleCredentialResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
     window.location.href = "home.html";
 }
 
-// 1. I-load ang Facebook SDK nang asynchronous
+// 1. Load fb sdk
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : 1800963204486932, // Palitan ito ng Facebook App ID mo galing sa FB Developers
+    appId      : 1800963204486932, 
     cookie     : true,
     xfbml      : true,
     version    : 'v18.0'
   });
 };
 
-// I-load ang SDK script sa background
+// load SDK script sa background
 (function(d, s, id){
    var js, fjs = d.getElementsByTagName(s)[0];
    if (d.getElementById(id)) {return;}
@@ -97,13 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
     fbBtn.addEventListener('click', () => {
       FB.login(function(response) {
         if (response.authResponse) {
-          // Kapag matagumpay na nag-log in ang user
           FB.api('/me', {fields: 'name,email'}, function(userInfo) {
             alert('Welcome, ' + userInfo.name + '!');
-            // Dito mo na pwedeng ilagay ang susunod na gagawin (hal. itago ang modal o i-redirect)
           });
         } else {
-          // Kapag kinansela o hindi itinuloy ng user
           console.log('User cancelled login.');
         }
       }, {scope: 'public_profile,email'});

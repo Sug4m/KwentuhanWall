@@ -592,7 +592,7 @@ footer {
     }
 }
 
-/* Modal Overlay Background (May tamang padding na para sa mobile view) */
+/* Modal Overlay Background */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -708,8 +708,8 @@ footer {
     font-size: 14px;
     color: #ffffff;
     outline: none;
-    transition: border-color 0.2s ease; /* Inalis na yung maling box-sizing sa loob */
-    box-sizing: border-box; /* Nandito na siya sa labas nang tama */
+    transition: border-color 0.2s ease; 
+    box-sizing: border-box; 
 }
 
 .email input:focus, .password input:focus {
@@ -803,7 +803,7 @@ footer {
     background-color: #27272a;
 }
 
-/* Social Login Container (Original working style) */
+/* Social Login Container */
 .social-login-container {
     display: flex;
     gap: 10px;
@@ -814,12 +814,6 @@ footer {
     box-sizing: border-box;
 }
 
-.social-login-container > * {
-    flex: 1;
-    width: 100%;
-    min-width: 0;
-}
-
 .google_btn {
     display: flex;
     justify-content: center;
@@ -827,26 +821,32 @@ footer {
 }
 
 .google-btn-wrapper {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden; 
-  display: flex;
-  justify-content: center;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
 }
 
-/* Facebook Button Styling */
+.g_id_signin {
+    width: 100% !important;
+}
+
+.g_id_signin iframe {
+    width: 100% !important;
+}
+
 .fb-login-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    width: 100%;
-    height: 40px;
+    width: 100% !important;
+    height: 40px; 
     background-color: #1877f2;
     color: #ffffff;
     border: none;
-    border-radius: 4px;
-    font-size: 13px;
+    border-radius: 4px; 
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
     box-sizing: border-box;
@@ -861,6 +861,29 @@ footer {
     height: 16px;
     fill: #ffffff;
     flex-shrink: 0;
+}
+
+/* Responsive para sa Mobile */
+@media screen and (max-width: 576px) {
+    .social-login-container {
+        flex-direction: column !important;
+        gap: 12px;
+        width: 100% !important;
+    }
+
+    .social-login-container > * {
+        width: 100% !important;
+    }
+
+    .google_btn, 
+    .google-btn-wrapper, 
+    .g_id_signin {
+        width: 100% !important;
+    }
+
+    .fb-login-btn {
+        width: 100% !important;
+    }
 }
 
 /* Don't have an account text */
@@ -884,7 +907,7 @@ footer {
     text-decoration: underline;
 }
 
-/* Footer Security Box */
+/* Footer Security container */
 .footer {
     margin-top: 24px;
     border-top: 1px solid #27272a;
@@ -905,7 +928,7 @@ footer {
     flex-shrink: 0;
     width: 18px;
     height: 18px;
-    margin-top: 2px;
+    margin-top: 7px;
 }
 
 .footer-content p {
@@ -915,10 +938,10 @@ footer {
     margin: 0;
 }
 
-/* Media Queries para sa Mobile Modal Container fix */
+/* Media Queries para sa Mobile Modal Container */
 @media screen and (max-width: 576px) {
     .modal-overlay {
-        padding: 12px; /* May safe space sa gilid ng cellphone */
+        padding: 12px; 
     }
 
     .modal-content {

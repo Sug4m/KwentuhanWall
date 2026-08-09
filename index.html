@@ -193,94 +193,96 @@
         </div>
     </footer>
 
-
+    <!-- Login Modal -->
     <div class="modal-overlay" id="loginModal">
-    <div class="modal-content">
-        <button class="close-btn" id="closeModalBtn">&times;</button>
+        <div class="modal-content">
+            <button class="close-btn" id="closeModalBtn">&times;</button>
 
-        <div class="top-content">
-            <img src="Kwentuhanwall_logo.png" alt="KwentuhanWall Logo" class="kwentuhan-logo">
-            <h4>Sign In to KwentuhanWall</h4>
-            <p>Sign in securely to manage your posts and connect with peers.</p>
-        </div>
-
-        <div class="input-buttons">
-            <div class="email">
-                <h5>EMAIL ADDRESS</h5>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-                <input type="email" name="Email address" id="emailInput" placeholder="example@gmail.com" required>
+            <div class="top-content">
+                <img src="Kwentuhanwall_logo.png" alt="KwentuhanWall Logo" class="kwentuhan-logo">
+                <h4>Sign In to KwentuhanWall</h4>
+                <p>Sign in securely to manage your posts and connect with peers.</p>
             </div>
+
+            <div class="input-buttons">
+                <div class="email">
+                    <h5>EMAIL ADDRESS</h5>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                    <input type="email" name="Email address" id="emailInput" placeholder="example@gmail.com" required>
+                </div>
             
-            <div class="password">
-                <h5>PASSWORD</h5>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole-icon lucide-lock-keyhole"><circle cx="12" cy="16" r="1"/><rect x="3" y="10" width="18" height="12" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
-                <input type="password" name="Password" id="passwordInput" placeholder="••••••••" required>
+                <div class="password">
+                    <h5>PASSWORD</h5>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-keyhole-icon lucide-lock-keyhole"><circle cx="12" cy="16" r="1"/><rect x="3" y="10" width="18" height="12" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
+                    <input type="password" name="Password" id="passwordInput" placeholder="••••••••" required>
                 
-                <button type="button" class="toggle-password" id="togglePasswordBtn" aria-label="Show password">
-                    <svg id="eyeOffIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-off-icon lucide-eye-off"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>
+                    <button type="button" class="toggle-password" id="togglePasswordBtn" aria-label="Show password">
+                        <svg id="eyeOffIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-off-icon lucide-eye-off"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>
                     
-                    <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
-                </button>
-            </div>
-
-            <div class="forgot">
-                <a href="#" id="forgotPasswordLink">Forgot your password?</a>
-            </div>
-        </div>
-
-        <div class="login-buttons">
-            <div class="login_btn">
-                <a href="home.html" id="loginSubmitBtn">Log In</a>
-            </div>
-
-            <div class="divider">
-                <div class="line"></div>
-                <span class="or-text">or</span>
-                <div class="line"></div>
-            </div>
-
-            <div class="social-login-container">
-                <div class="google_btn">
-                    <script src="https://accounts.google.com/gsi/client" async defer></script>
-                    <div id="g_id_onload"
-                         data-client-id="YOUR_GOOGLE_CLIENT_ID"
-                         data-callback="handleCredentialResponse"
-                         data-auto-prompt="false">
-                    </div>
-                    <div class="google-btn-wrapper">
-                        <div class="g_id_signin"
-                             data-type="standard"
-                             data-shape="rectangular"
-                             data-theme="outline"
-                             data-text="sign_in_with"
-                             data-size="large"
-                             data-logo_alignment="left">
-                        </div>
-                    </div>
+                        <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
                 </div>
 
-                <button class="fb-login-btn" id="fbLoginBtn">
-                    <svg class="fb-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
-                        <path fill="#ffffff" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                    Sign in with Facebook
-                </button>
+                <div class="forgot">
+                    <a href="#" id="forgotPasswordLink">Forgot your password?</a>
+                </div>
             </div>
 
-            <div class="dont-have">
-                <p>Don't have an account?</p>
-                <a href="#" id="signUpLink">Sign up</a>
-            </div>
-        </div>
+            <div class="login-buttons">
+                <div class="login_btn">
+                    <a href="home.html" id="loginSubmitBtn">Log In</a>
+                </div>
 
-        <div class="footer">
-            <div class="footer-content">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-icon lucide-shield"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
-                <p>Secure and confidential login. Your real identity remains completely hidden.</p>
+                <div class="divider">
+                    <div class="line"></div>
+                    <span class="or-text">or</span>
+                    <div class="line"></div>
+                </div>
+
+                <div class="social-login-container">
+                    <!-- Google login-->
+                    <div class="google_btn">
+                        <script src="https://accounts.google.com/gsi/client" async defer></script>
+                        <div id="g_id_onload"
+                            data-client-id="YOUR_GOOGLE_CLIENT_ID"
+                            data-callback="handleCredentialResponse"
+                            data-auto-prompt="false">
+                        </div>
+                        <div class="google-btn-wrapper">
+                            <div class="g_id_signin"
+                                data-type="standard"
+                                data-shape="rectangular"
+                                data-theme="outline"
+                                data-text="sign_in_with"
+                                data-size="large"
+                                data-logo_alignment="left">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FB login-->
+                    <button class="fb-login-btn" id="fbLoginBtn">
+                        <svg class="fb-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="#ffffff" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        Sign in with Facebook
+                    </button>
+                </div>
+
+                <div class="dont-have">
+                    <p>Don't have an account?</p>
+                    <a href="#" id="signUpLink">Sign up</a>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-content">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-icon lucide-shield"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                    <p>Secure and confidential login. Your real identity remains completely hidden.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </body>
 
 <script src="script.js"></script>
