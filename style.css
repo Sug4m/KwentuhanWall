@@ -592,7 +592,7 @@ footer {
     }
 }
 
-/* Modal Overlay Background */
+/* Modal Overlay Background (May tamang padding na para sa mobile view) */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -605,7 +605,8 @@ footer {
     align-items: center;
     z-index: 1000;
     font-family: 'Inter', sans-serif, system-ui;
-    padding: 16px; /* Para may safe space sa gilid kapag mobile */
+    padding: 16px;
+    box-sizing: border-box;
 }
 
 /* Main Modal Content Box */
@@ -620,6 +621,8 @@ footer {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
     color: #f4f4f5;
     box-sizing: border-box;
+    max-height: 95vh;
+    overflow-y: auto;
 }
 
 /* Close Button */
@@ -705,7 +708,7 @@ footer {
     font-size: 14px;
     color: #ffffff;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s ease, box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -777,7 +780,7 @@ footer {
     font-weight: 600;
     font-size: 14px;
     text-decoration: none;
-    transition: opacity 0.2s ease, transform 0.1s ease;
+    transition: opacity 0.2s ease;
     box-sizing: border-box;
 }
 
@@ -800,7 +803,23 @@ footer {
     background-color: #27272a;
 }
 
-/* Google Button Wrapper adjustments */
+/* Social Login Container (Original working style) */
+.social-login-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.social-login-container > * {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+}
+
 .google_btn {
     display: flex;
     justify-content: center;
@@ -815,36 +834,14 @@ footer {
   justify-content: center;
 }
 
-/* --- Social Login Grid Container --- */
-.social-login-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Eksaktong hati sa dalawa */
-    gap: 10px;
-    width: 100%;
-    margin: 15px 0;
-    box-sizing: border-box;
-    align-items: center;
-}
-
-/* Siguraduhing sakop ng Google button ang buong column cell nito */
-.google_btn, 
-.google-btn-wrapper, 
-.g_id_signin {
-    width: 100% !important;
-}
-
-.g_id_signin iframe {
-    width: 100% !important;
-}
-
-/* --- Facebook Button Styling --- */
+/* Facebook Button Styling */
 .fb-login-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     width: 100%;
-    height: 40px; /* Pantay sa standard height ng Google button */
+    height: 40px;
     background-color: #1877f2;
     color: #ffffff;
     border: none;
@@ -853,7 +850,6 @@ footer {
     font-weight: 500;
     cursor: pointer;
     box-sizing: border-box;
-    white-space: nowrap;
 }
 
 .fb-login-btn:hover {
@@ -865,13 +861,6 @@ footer {
     height: 16px;
     fill: #ffffff;
     flex-shrink: 0;
-}
-
-/* --- RESPONSIVE MEDIA QUERY (Mobile View) --- */
-@media screen and (max-width: 576px) {
-    .social-login-container {
-        grid-template-columns: 1fr; /* Magiging 1 column na lang (papatong) kapag mobile */
-    }
 }
 
 /* Don't have an account text */
@@ -926,31 +915,16 @@ footer {
     margin: 0;
 }
 
-/* Media Qurie */
-@media screen and (max-width: 480px) {
+/* Media Queries para sa Mobile Modal Container fix */
+@media screen and (max-width: 576px) {
+    .modal-overlay {
+        padding: 12px; /* May safe space sa gilid ng cellphone */
+    }
+
     .modal-content {
-        padding: 24px 20px; /* Binawasan ang padding para magkasya sa mas maliit na screen */
-        border-radius: 12px;
-    }
-
-    .top-content h4 {
-        font-size: 18px; /* Medyo paliitin ang header font sa mobile */
-    }
-
-    .top-content p {
-        font-size: 13px;
-    }
-
-    .email input, .password input {
-        font-size: 13px; /* Iwas zoom sa iOS kapag pinindot ang input */
-        padding: 10px 12px 10px 38px;
-    }
-
-    .email svg, .password svg.lucide-lock-keyhole {
-        top: 33px;
-    }
-
-    .toggle-password {
-        top: 31px;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto;
+        padding: 24px 20px;
     }
 }
