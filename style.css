@@ -607,260 +607,260 @@ footer {
     font-family: 'Inter', sans-serif, system-ui;
     padding: 16px;
     box-sizing: border-box;
-}
 
-/* Main Modal Content Box */
-.modal-content {
-    background-color: #121214;
-    border: 1px solid #27272a;
-    width: 100%;
-    max-width: 440px;
-    padding: 32px;
-    border-radius: 16px;
-    position: relative;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
-    color: #f4f4f5;
-    box-sizing: border-box;
-    max-height: 95vh;
-    overflow-y: auto;
-}
+    /* Main Modal Content Box */
+    .modal-content {
+        background-color: #121214;
+        border: 1px solid #27272a;
+        width: 100%;
+        max-width: 440px;
+        padding: 32px;
+        border-radius: 16px;
+        position: relative;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+        color: #f4f4f5;
+        box-sizing: border-box;
+        max-height: 95vh;
+        overflow-y: auto;
 
-/* Close Button */
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    color: #a1a1aa;
-    font-size: 24px;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: #a1a1aa;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.2s ease;
 
-.close-btn:hover {
-    color: #ffffff;
-}
+            .close-btn:hover {
+                color: #ffffff;
+            }
+        }
 
-/* Top Content (Logo & Headings) */
-.top-content {
-    text-align: center;
-    margin-bottom: 24px;
-}
+        /* Top Content (Logo & Headings) */
+        .top-content {
+            text-align: center;
+            margin-bottom: 24px;
 
-.kwentuhan-logo {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    margin-bottom: 16px;
-    border-radius: 10px;
-}
+            .kwentuhan-logo {
+                width: 48px;
+                height: 48px;
+                object-fit: contain;
+                margin-bottom: 16px;
+                border-radius: 10px;
+            }
 
-.top-content h4 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 8px;
-}
+            .top-content h4 {
+                font-size: 20px;
+                font-weight: 600;
+                color: #ffffff;
+                margin-bottom: 8px;
+            }
 
-.top-content p {
-    font-size: 14px;
-    color: #a1a1aa;
-    line-height: 1.5;
-}
+            .top-content p {
+                font-size: 14px;
+                color: #a1a1aa;
+                line-height: 1.5;
+            }
+        }
 
-/* Input Fields Section */
-.input-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
+        /* Input Fields Section */
+        .input-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
 
-.email, .password {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
+            .email, .password {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
 
-.email h5, .password h5 {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    color: #a1a1aa;
-}
+            .email h5, .password h5 {
+                font-size: 11px;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                color: #a1a1aa;
+            }
 
-.email svg, .password svg.lucide-lock-keyhole {
-    position: absolute;
-    left: 14px;
-    top: 35px;
-    width: 18px;
-    height: 18px;
-    color: #71717a;
-}
+            .email svg, .password svg.lucide-lock-keyhole {
+                position: absolute;
+                left: 14px;
+                top: 35px;
+                width: 18px;
+                height: 18px;
+                color: #71717a;
+            }
 
-.email input, .password input {
-    width: 100%;
-    background-color: #18181b;
-    border: 1px solid #27272a;
-    border-radius: 8px;
-    padding: 12px 14px 12px 42px;
-    font-size: 14px;
-    color: #ffffff;
-    outline: none;
-    transition: border-color 0.2s ease; 
-    box-sizing: border-box; 
-}
+            .email input, .password input {
+                width: 100%;
+                background-color: #18181b;
+                border: 1px solid #27272a;
+                border-radius: 8px;
+                padding: 12px 14px 12px 42px;
+                font-size: 14px;
+                color: #ffffff;
+                outline: none;
+                transition: border-color 0.2s ease; 
+                box-sizing: border-box; 
+            }
 
-.email input:focus, .password input:focus {
-    border-color: #a855f7;
-    box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.2);
-}
+            .email input:focus, .password input:focus {
+                border-color: #a855f7;
+                box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.2);
+            }
 
-.email input::placeholder, .password input::placeholder {
-    color: #52525b;
-}
+            .email input::placeholder, .password input::placeholder {
+                color: #52525b;
+            }
+        }
 
-/* Toggle Password Visibility Button */
-.toggle-password {
-    position: absolute;
-    right: 14px;
-    top: 33px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: #71717a;
-    display: flex;
-    align-items: center;
-}
+        /* Toggle Password Visibility Button */
+        .toggle-password {
+            position: absolute;
+            right: 14px;
+            top: 33px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: #71717a;
+            display: flex;
+            align-items: center;
 
-.toggle-password svg {
-    width: 18px;
-    height: 18px;
-}
+            .toggle-password svg {
+                width: 18px;
+                height: 18px;
+            }
 
-.lucide-eye {
-    display: none;
-}
+            .lucide-eye {
+                display: none;
+            }
+        }
 
-/* Forgot Password Link */
-.forgot {
-    text-align: right;
-    margin-top: -4px;
-}
+        /* Forgot Password Link */
+        .forgot {
+            text-align: right;
+            margin-top: -4px;
 
-.forgot a {
-    font-size: 13px;
-    color: #c084fc;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
+            .forgot a {
+                font-size: 13px;
+                color: #c084fc;
+                text-decoration: none;
+                transition: color 0.2s ease;
 
-.forgot a:hover {
-    text-decoration: underline;
-    color: #d8b4fe;
-}
+                .forgot a:hover {
+                    text-decoration: underline;
+                    color: #d8b4fe;
+                }
+            }
+        }
 
-/* Login Buttons & Actions */
-.login-buttons {
-    margin-top: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
+        /* Login Buttons & Actions */
+            .login-buttons {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
 
-.login_btn a {
-    display: block;
-    width: 100%;
-    background: linear-gradient(135deg, #a855f7, #9333ea);
-    color: #ffffff;
-    text-align: center;
-    padding: 12px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-    box-sizing: border-box;
-}
+            .login_btn a {
+                display: block;
+                width: 100%;
+                background: linear-gradient(135deg, #a855f7, #9333ea);
+                color: #ffffff;
+                text-align: center;
+                padding: 12px;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 14px;
+                text-decoration: none;
+                transition: opacity 0.2s ease;
+                box-sizing: border-box;
 
-.login_btn a:hover {
-    opacity: 0.9;
-}
+                .login_btn a:hover {
+                    opacity: 0.9;
+                }
+            }
+        }
 
-/* Divider Styling */
-.divider {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: #52525b;
-    font-size: 13px;
-}
+        /* Divider Styling */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #52525b;
+            font-size: 13px;
 
-.line {
-    flex: 1;
-    height: 1px;
-    background-color: #27272a;
-}
+            .line {
+                flex: 1;
+                height: 1px;
+                background-color: #27272a;
+            }
+        }
 
-/* Social Login Container */
-.social-login-container {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-}
+        /* Social Login Container */
+        .social-login-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
 
-.google_btn {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
+            .google_btn {
+                display: flex;
+                justify-content: center;
+                width: 100%;
 
-.google-btn-wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-}
+                .google-btn-wrapper {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    display: flex !important;
+                    justify-content: center !important;
+                }
 
-.g_id_signin {
-    width: 100% !important;
-}
+                .g_id_signin {
+                    width: 100% !important;
+                }
 
-.g_id_signin iframe {
-    width: 100% !important;
-}
+                .g_id_signin iframe {
+                    width: 100% !important;
+                }
+            }
 
-.fb-login-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100% !important;
-    height: 40px; 
-    background-color: #1877f2;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px; 
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    box-sizing: border-box;
-}
+            .fb-login-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                width: 100% !important;
+                height: 40px; 
+                background-color: #1877f2;
+                color: #ffffff;
+                border: none;
+                border-radius: 4px; 
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                box-sizing: border-box;
 
-.fb-login-btn:hover {
-    background-color: #165fe5;
-}
+                .fb-login-btn:hover {
+                    background-color: #165fe5;
+                }
 
-.fb-icon {
-    width: 16px;
-    height: 16px;
-    fill: #ffffff;
-    flex-shrink: 0;
+                .fb-icon {
+                    width: 16px;
+                    height: 16px;
+                    fill: #ffffff;
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
 }
 
 /* Responsive para sa Mobile */
