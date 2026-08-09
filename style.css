@@ -708,8 +708,8 @@ footer {
     font-size: 14px;
     color: #ffffff;
     outline: none;
-    transition: border-color 0.2s ease, box-sizing: border-box;
-    box-sizing: border-box;
+    transition: border-color 0.2s ease; /* Inalis na yung maling box-sizing sa loob */
+    box-sizing: border-box; /* Nandito na siya sa labas nang tama */
 }
 
 .email input:focus, .password input:focus {
