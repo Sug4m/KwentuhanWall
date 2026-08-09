@@ -216,11 +216,12 @@ main {
         padding: 3rem 0rem;
 
         .main-tagline {
-            font-size: 1.8rem; 
+            font-size: 1.5rem; 
         }
 
         .subtitle {
             font-size: 0.9rem;
+            text-align: center;
         }
 
         .buttons {
