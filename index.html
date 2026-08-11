@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel5="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
@@ -242,21 +243,8 @@
                 <div class="social-login-container">
                     <!-- Google login-->
                     <div class="google_btn">
-                        <script src="https://accounts.google.com/gsi/client" async defer></script>
-                        <div id="g_id_onload"
-                            data-client-id="766337207-5ufuj02bejmruogmtl77bm70etaubedr.apps.googleusercontent.com"
-                            data-callback="handleCredentialResponse"
-                            data-auto-prompt="false">
-                        </div>
                         <div class="google-btn-wrapper">
-                            <div class="g_id_signin"
-                                data-type="standard"
-                                data-shape="rectangular"
-                                data-theme="outline"
-                                data-text="sign_in_with"
-                                data-size="large"
-                                data-logo_alignment="left">
-                            </div>
+                            <div id="buttonDiv"></div>
                         </div>
                     </div>
                     

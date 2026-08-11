@@ -106,3 +106,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+
+// Function na mag-hahandle kapag nakapag-login na ang user
+function handleCredentialResponse(response) {
+    console.log="Encoded JWT ID token: " + response.credential;
+    // Ilagay dito ang susunod mong code pagka-login
+}
+
+// I-initialize ang Google Sign-In gamit ang JavaScript para hindi magka-error kahit nasa modal
+window.onload = function () {
+    google.accounts.id.initialize({
+        client_id: "766337207-5ufuj02bejmruogmtl77bm70etaubedr.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+    });
+    
+    google.accounts.id.renderButton(
+        document.getElementById("buttonDiv"),
+        { theme: "outline", size: "large", width: "100%" }  // customization attributes
+    );
+};

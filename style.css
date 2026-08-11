@@ -866,6 +866,17 @@ footer {
 
 /* Responsive para sa Mobile */
 @media screen and (max-width: 576px) {
+    .modal-overlay {
+        padding: 12px;
+    }
+
+    .modal-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto;
+        padding: 24px 20px;
+    }
+
     .social-login-container {
         flex-direction: column !important;
         gap: 12px;
@@ -876,10 +887,13 @@ footer {
         width: 100% !important;
     }
 
+    /* Targetin ang Google button container at ang iframe nito */
     .google_btn, 
     .google-btn-wrapper, 
-    .g_id_signin {
+    #buttonDiv, 
+    #buttonDiv iframe {
         width: 100% !important;
+        max-width: 100% !important;
     }
 
     .fb-login-btn {
