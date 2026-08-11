@@ -69,60 +69,21 @@ function handleCredentialResponse(response) {
     window.location.href = "home.html";
 }
 
-// 1. Load fb sdk
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : 1800963204486932, 
-    cookie     : true,
-    xfbml      : true,
-    version    : 'v18.0'
-  });
-};
-
-// load SDK script sa background
-(function(d, s, id){
-   var js, fjs = d.getElementsByTagName(s)[0];
-   if (d.getElementById(id)) {return;}
-   js = d.createElement(s); js.id = id;
-   js.src = "https://connect.facebook.net/en_US/sdk.js";
-   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
-// 2. Event listener para sa Facebook login button kapag pinindot
-document.addEventListener('DOMContentLoaded', () => {
-  const fbBtn = document.getElementById('fbLoginBtn');
-  
-  if (fbBtn) {
-    fbBtn.addEventListener('click', () => {
-      FB.login(function(response) {
-        if (response.authResponse) {
-          FB.api('/me', {fields: 'name,email'}, function(userInfo) {
-            alert('Welcome, ' + userInfo.name + '!');
-          });
-        } else {
-          console.log('User cancelled login.');
-        }
-      }, {scope: 'public_profile,email'});
-    });
-  }
-});
-
-
 // Function na mag-hahandle kapag nakapag-login na ang user
 function handleCredentialResponse(response) {
     console.log="Encoded JWT ID token: " + response.credential;
     // Ilagay dito ang susunod mong code pagka-login
 }
 
-// I-initialize ang Google Sign-In gamit ang JavaScript para hindi magka-error kahit nasa modal
 window.onload = function () {
     google.accounts.id.initialize({
         client_id: "766337207-5ufuj02bejmruogmtl77bm70etaubedr.apps.googleusercontent.com",
         callback: handleCredentialResponse
     });
     
+    // Alisin ang 'width' property dito para maging flexible
     google.accounts.id.renderButton(
         document.getElementById("buttonDiv"),
-        { theme: "outline", size: "large", width: "100%" }  // customization attributes
+        { theme: "outline", size: "large" } 
     );
 };
