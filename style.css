@@ -45,17 +45,6 @@
 .kw-textlink { color: var(--text-dim); text-decoration: none; font-size: 14px; font-weight: 600; }
 .kw-textlink:hover { color: var(--text); }
 
-.kw-burger {
-  display: none; background: none; border: none; color: var(--text);
-  cursor: pointer; padding: 4px;
-}
-.kw-mobile-menu {
-  display: flex; flex-direction: column; gap: 4px;
-  padding: 8px 20px 20px; border-top: 1px solid var(--border);
-}
-.kw-mobile-menu[hidden] { display: none; }
-.kw-mobile-menu a { color: var(--text-dim); text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 4px; }
-.kw-mobile-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
 
 /* BUTTONS */
 .kw-btn {
@@ -121,11 +110,15 @@
 
 /* RESPONSIVE */
 @media (max-width: 860px) {
-  .kw-nav-links, .kw-nav-actions { display: none; }
-  .kw-burger { display: block; }
+  .kw-nav-links { display: none; }
+  .kw-signup-link { display: none; }
   .kw-grid-3 { grid-template-columns: 1fr; }
   .kw-hero { padding: 64px 20px 44px; }
   .kw-section { padding: 36px 20px; }
+}
+@media (max-width: 400px) {
+  .kw-logo span:last-child { font-size: 14px; }
+  .kw-nav-inner { padding: 14px 16px; }
 }
 @media (max-width: 480px) {
   .kw-hero-actions { flex-direction: column; align-items: stretch; }
