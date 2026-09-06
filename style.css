@@ -15,6 +15,17 @@
 .kw *, .kw *::before, .kw *::after { box-sizing: border-box; }
 .kw h1, .kw h2, .kw h3 { font-family: 'Sora', sans-serif; }
 
+/* Remove the default tap/click highlight, keep focus visible for keyboard users */
+.kw a, .kw button {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+.kw a:focus, .kw button:focus { outline: none; }
+.kw a:focus-visible, .kw button:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
+}
+
 /* NAV */
 .kw-nav {
   position: sticky; top: 0; z-index: 30;
