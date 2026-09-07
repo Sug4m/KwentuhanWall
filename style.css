@@ -49,12 +49,18 @@
   display: flex; align-items: center; justify-content: center;
   font-size: 13px; font-weight: 800;
 }
-.kw-nav-links { display: flex; gap: 26px; flex: 1; justify-content: center; }
-.kw-nav-links a { color: var(--text-dim); text-decoration: none; font-size: 14px; font-weight: 500; }
-.kw-nav-links a:hover { color: var(--text); }
+
 .kw-nav-actions { display: flex; align-items: center; gap: 16px; }
 .kw-textlink { color: var(--text-dim); text-decoration: none; font-size: 14px; font-weight: 600; }
 .kw-textlink:hover { color: var(--text); }
+button.kw-textlink {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
 
 
 /* BUTTONS */
@@ -135,4 +141,89 @@
   .kw-hero-actions { flex-direction: column; align-items: stretch; }
   .kw-hero-actions .kw-btn { width: 100%; }
   .kw-cta { padding: 40px 22px; }
+}
+/* AUTH MODAL */
+.kw-overlay {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(0,0,0,0.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.kw-overlay[hidden] { display: none; }
+.kw-modal {
+  position: relative;
+  background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+  width: 100%; max-width: 420px;
+  padding: 40px 32px 28px;
+  text-align: center;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+}
+.kw-modal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: #1E1E22; border: none; color: var(--text-dim); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.kw-modal-close:hover { color: var(--text); }
+.kw-auth-mark {
+  width: 46px; height: 46px; margin: 0 auto 20px;
+  border-radius: 12px; border: 1.5px solid var(--purple); color: var(--purple);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Sora', sans-serif; font-weight: 800; font-size: 18px;
+}
+.kw-auth-title { font-size: 22px; font-weight: 800; margin: 0 0 10px; }
+.kw-modal-sub { color: var(--text-dim); font-size: 14px; line-height: 1.55; margin: 0 0 26px; }
+
+.kw-g-btn-slot { display: flex; justify-content: center; margin-bottom: 22px; min-height: 44px; }
+
+/* Custom-styled Google button, with the real Google button invisibly
+   overlaid on top so clicks are 100% real, while the look stays ours. */
+.kw-g-btn-wrap {
+  position: relative;
+  width: 100%; max-width: 300px;
+  height: 46px;
+  margin: 0 auto 22px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.kw-g-btn-visual {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: #000; color: #fff;
+  border: 1px solid #3A3A3A; border-radius: 999px;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14.5px;
+  pointer-events: none;
+}
+.kw-g-btn-wrap:hover .kw-g-btn-visual { background: #1A1A1A; }
+.kw-g-btn-real {
+  position: absolute; inset: 0;
+  opacity: 0.001; /* invisible but still clickable/rendered by Google */
+}
+.kw-g-btn-real iframe { width: 100% !important; }
+
+.kw-auth-switch { font-size: 14px; color: var(--text-dim); margin: 0 0 24px; }
+.kw-auth-switch .kw-textlink { color: var(--purple); text-decoration: underline; }
+
+.kw-auth-note {
+  display: flex; align-items: flex-start; gap: 10px; text-align: left;
+  background: rgba(139,92,246,0.08); border-radius: 12px; padding: 14px 16px;
+  font-size: 13px; color: var(--text-dim); line-height: 1.55;
+}
+.kw-auth-note svg { color: var(--purple); }
+
+/* TOAST */
+.kw-toast {
+  position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%);
+  background: var(--card); border: 1px solid var(--border); color: var(--text);
+  padding: 12px 22px; border-radius: 999px; font-size: 13.5px; font-weight: 600;
+  z-index: 110; max-width: 90vw; text-align: center;
+}
+.kw-toast[hidden] { display: none; }
+
+.kw-user-chip {
+  font-size: 13.5px; font-weight: 600; color: var(--text);
+  background: var(--card); border: 1px solid var(--border);
+  padding: 8px 14px; border-radius: 999px;
 }

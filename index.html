@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="style.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body class="kw">
 
@@ -17,15 +18,9 @@
         <span>KwentuhanWall</span>
       </div>
 
-      <nav class="kw-nav-links">
-        <a href="#wall">The Wall</a>
-        <a href="#write">Write</a>
-        <a href="#mystory">My Story</a>
-      </nav>
-
       <div class="kw-nav-actions">
-        <a class="kw-textlink kw-signup-link" href="#signup">Sign up</a>
-        <button class="kw-btn kw-btn-primary kw-btn-sm">Log In</button>
+        <a class="kw-textlink kw-signup-link" href="#signup" id="signupLink">Sign up</a>
+        <button class="kw-btn kw-btn-primary kw-btn-sm" id="loginBtn">Log In</button>
       </div>
     </div>
   </header>
@@ -39,7 +34,7 @@
         perspective without revealing your identity.
       </p>
       <div class="kw-hero-actions">
-        <button class="kw-btn kw-btn-primary">Get Started</button>
+        <button class="kw-btn kw-btn-primary kw-js-open-signup">Get Started</button>
         <button class="kw-btn kw-btn-outline">Go to The Wall</button>
       </div>
       <div class="kw-hero-meta">
@@ -103,7 +98,7 @@
       <div class="kw-cta">
         <h2>Ready to Share Your Thoughts?</h2>
         <p>Share your experiences and get constructive perspectives from others.</p>
-        <button class="kw-btn kw-btn-primary">Get Started Now</button>
+        <button class="kw-btn kw-btn-primary kw-js-open-signup">Get Started Now</button>
       </div>
     </section>
   </main>
@@ -126,6 +121,72 @@
       <span>Built with care for every person.</span>
     </div>
   </footer>
+
+  <!-- LOGIN MODAL -->
+  <div class="kw-overlay" id="loginOverlay" hidden>
+    <div class="kw-modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <button class="kw-modal-close" data-close-modal aria-label="Isara">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="kw-auth-mark">K</div>
+      <h2 class="kw-auth-title" id="loginTitle">Sign In to KwentuhanWall</h2>
+      <p class="kw-modal-sub">Sign in securely to manage your posts and connect with peers.</p>
+
+      <div class="kw-g-btn-wrap">
+        <div class="kw-g-btn-visual">
+          <svg width="18" height="18" viewBox="0 0 48 48">
+            <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.6-6 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.1 8 3l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/>
+            <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.5 18.9 12 24 12c3.1 0 5.9 1.1 8 3l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+            <path fill="#4CAF50" d="M24 44c5.5 0 10.4-1.9 14.3-5.1l-6.6-5.6C29.6 34.8 26.9 36 24 36c-5.2 0-9.6-3.3-11.2-8l-6.6 5.1C9.6 39.6 16.3 44 24 44z"/>
+            <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.2 5.7l6.6 5.6C41.4 35.9 44 30.4 44 24c0-1.3-.1-2.7-.4-3.5z"/>
+          </svg>
+          <span>Log in with Google</span>
+        </div>
+        <div id="gLoginBtn" class="kw-g-btn-real"></div>
+      </div>
+
+      <p class="kw-auth-switch">Don't have an account? <button class="kw-textlink" data-open-signup>Sign up</button></p>
+
+      <div class="kw-auth-note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Secure and confidential login. Your real identity remains completely hidden.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNUP MODAL -->
+  <div class="kw-overlay" id="signupOverlay" hidden>
+    <div class="kw-modal" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
+      <button class="kw-modal-close" data-close-modal aria-label="Isara">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="kw-auth-mark">K</div>
+      <h2 class="kw-auth-title" id="signupTitle">Sign Up to KwentuhanWall</h2>
+      <p class="kw-modal-sub">Create an account to start sharing and connecting with peers.</p>
+
+      <div class="kw-g-btn-wrap">
+        <div class="kw-g-btn-visual">
+          <svg width="18" height="18" viewBox="0 0 48 48">
+            <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.6-6 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.1 8 3l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/>
+            <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.5 18.9 12 24 12c3.1 0 5.9 1.1 8 3l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+            <path fill="#4CAF50" d="M24 44c5.5 0 10.4-1.9 14.3-5.1l-6.6-5.6C29.6 34.8 26.9 36 24 36c-5.2 0-9.6-3.3-11.2-8l-6.6 5.1C9.6 39.6 16.3 44 24 44z"/>
+            <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.2 5.7l6.6 5.6C41.4 35.9 44 30.4 44 24c0-1.3-.1-2.7-.4-3.5z"/>
+          </svg>
+          <span>Sign up with Google</span>
+        </div>
+        <div id="gSignupBtn" class="kw-g-btn-real"></div>
+      </div>
+
+      <p class="kw-auth-switch">Already have an account? <button class="kw-textlink" data-open-login>Log in</button></p>
+
+      <div class="kw-auth-note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Protected registration. Your real-world identity stays completely hidden from the public feed.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="kw-toast" id="toast" hidden></div>
 
   <script src="script.js"></script>
 </body>
