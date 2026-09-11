@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Wall — KwentuhanWall</title>
+<link rel="stylesheet" href="wall.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="kw">
+
+  <header class="kw-nav">
+    <div class="kw-nav-inner">
+      <div class="kw-logo">
+        <span class="kw-logo-mark">K</span>
+        <span>KwentuhanWall</span>
+      </div>
+
+      <nav class="kw-nav-links">
+        <a href="wall.html" class="kw-navlink-active">The Wall</a>
+        <a href="#write">Write</a>
+        <a href="#mystory">My Story</a>
+      </nav>
+
+      <div class="kw-nav-actions">
+        <button class="kw-comfort-pill">Spiritual Comfort</button>
+        <div class="kw-menu-wrap">
+          <button class="kw-icon-btn" id="hamburgerBtn" aria-label="Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+          </button>
+          <div class="kw-hamburger-menu" id="hamburgerMenu" hidden></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="kw-wall-page">
+    <div class="kw-wall-header">
+      <span class="kw-pill">Anonymous Discussion Wall</span>
+      <h1>Share. No Judgment.</h1>
+      <p>Share what's on your mind without fear of being judged. Receive genuine care and advice from people who understand you.</p>
+    </div>
+
+    <div class="kw-wall-layout">
+      <div class="kw-wall-main">
+        <div class="kw-tabs-row">
+          <div class="kw-tabs">
+            <button class="kw-tab kw-tab-active" data-tab="latest">Latest</button>
+            <button class="kw-tab" data-tab="popular">Popular</button>
+            <button class="kw-tab" data-tab="friends">Friends</button>
+          </div>
+          <span class="kw-stories-count" id="storiesCount">0 Stories This Week</span>
+        </div>
+
+        <!-- Post list — intentionally empty for now.
+             Kapag may backend/API na, dito ilalagay ang mga totoong post
+             (via JS: fetch posts, tapos i-render bilang .kw-postcard elements
+             sa loob ng #postList). Infinite-scroll hook (#loadSentinel) ay
+             nakahanda na rin sa wall.js. -->
+        <div id="postList"></div>
+
+        <div id="emptyState" class="kw-empty-wrap">
+          <div class="kw-empty-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Wala pang kwento dito</h3>
+          <p>Bago pa lang ang KwentuhanWall — ikaw pa lang ang unang darating. Ikaw ang maaaring maging una.</p>
+          <a href="#write" class="kw-btn kw-btn-primary">Sumulat ng Unang Kwento</a>
+        </div>
+
+        <div id="loadSentinel" class="kw-load-sentinel" hidden>
+          <span id="loadingLabel" hidden>Naglo-load pa ng mga kwento...</span>
+        </div>
+      </div>
+
+      <aside class="kw-wall-side">
+        <div class="kw-card kw-side-card">
+          <span class="kw-side-title">CATEGORIES</span>
+          <button class="kw-cat-row" data-category="Love Life"><span><span class="kw-cat-dot kw-dot-lovelife"></span>Love Life</span><span class="kw-cat-count">0</span></button>
+          <button class="kw-cat-row" data-category="Career"><span><span class="kw-cat-dot kw-dot-career"></span>Career</span><span class="kw-cat-count">0</span></button>
+          <button class="kw-cat-row" data-category="Family"><span><span class="kw-cat-dot kw-dot-family"></span>Family</span><span class="kw-cat-count">0</span></button>
+          <button class="kw-cat-row" data-category="School"><span><span class="kw-cat-dot kw-dot-school"></span>School</span><span class="kw-cat-count">0</span></button>
+          <button class="kw-cat-row" data-category="Mental Health"><span><span class="kw-cat-dot kw-dot-mentalhealth"></span>Mental Health</span><span class="kw-cat-count">0</span></button>
+          <button class="kw-cat-row" data-category="Others"><span><span class="kw-cat-dot kw-dot-others"></span>Others</span><span class="kw-cat-count">0</span></button>
+        </div>
+
+        <div class="kw-card kw-side-card kw-safe-card">
+          <strong>Safe &amp; Secure Environment</strong>
+          <p>We maintain a constructive and moderated environment. If you need professional support or guidance, please visit our hotlines page.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="kw-footer">
+    <div class="kw-footer-inner">
+      <div>
+        <div class="kw-footer-brand">KwentuhanWall</div>
+        <p>A secure, anonymous platform built for open discussions and shared perspectives.</p>
+      </div>
+      <div class="kw-footer-links">
+        <span class="kw-footer-head">SUPPORT</span>
+        <a href="#hotlines">Hotlines</a>
+        <a href="#terms">Terms of Use</a>
+        <a href="#privacy">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="kw-footer-bottom">
+      <span>© 2024 Kwentuhan Wall. Thank you for listening and understanding.</span>
+      <span>Built with care for fellow Filipinos.</span>
+    </div>
+  </footer>
+
+  <div class="kw-toast" id="toast" hidden></div>
+
+  <script src="wall.js"></script>
+</body>
+</html>

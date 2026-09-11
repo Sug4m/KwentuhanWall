@@ -57,33 +57,39 @@ function showToast(message) {
   showToast._t = setTimeout(() => { toast.hidden = true; }, 2800);
 }
 
-// Decode the JWT credential Google sends back (client-side only, for display purposes).
-function decodeJwt(token) {
+const KW_USER_KEY = "kwentuhanwall_user";
+
+// Ipinapadala ang Google credential sa backend (auth.php), na siyang
+// mag-ve-verify nito sa Google mismo at maghahanap/gagawa ng user row
+// sa totoong MySQL database.
+async function handleGoogleCredential(response) {
   try {
-    const payload = token.split(".")[1];
-    return JSON.parse(atob(payload.replace(/-/g, "+").replace(/_/g, "/")));
-  } catch (e) {
-    return null;
-  }
-}
+    const res = await fetch("backend/auth.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ credential: response.credential }),
+    });
+    const data = await res.json();
 
-function setLoggedInUI(name) {
-  const actions = document.querySelector(".kw-nav-actions");
-  actions.innerHTML = `
-    <span class="kw-user-chip">${name}</span>
-    <button class="kw-btn kw-btn-outline kw-btn-sm" id="logoutBtn">Log Out</button>
-  `;
-  document.getElementById("logoutBtn").addEventListener("click", () => location.reload());
-}
+    if (!res.ok) {
+      showToast(data.error || "May problema sa pag-login. Subukan ulit.");
+      return;
+    }
 
-function handleGoogleCredential(response) {
-  const data = decodeJwt(response.credential);
-  closeModals();
-  if (data && data.name) {
-    setLoggedInUI(data.given_name || data.name);
-    showToast(`Naka-login ka gamit ang Google bilang ${data.given_name || data.name}. Anonymous pa rin ang ipapakita mo sa Pader.`);
-  } else {
-    showToast("Na-login ka gamit ang Google.");
+    // I-save lang ang PUBLIC na impormasyon sa localStorage
+    // (para may alam kaagad ang wall.html kung sino ang naka-login).
+    localStorage.setItem(KW_USER_KEY, JSON.stringify({
+      id: data.id,
+      alias: data.alias,
+      avatar: data.avatar,
+    }));
+
+    showToast(`Naka-login ka bilang ${data.alias}. Papunta ka na sa Pader...`);
+    setTimeout(() => {
+      window.location.href = "wall.html";
+    }, 700);
+  } catch (err) {
+    showToast("Hindi makonekta sa server. Siguraduhing tumatakbo ang XAMPP (Apache).");
   }
 }
 

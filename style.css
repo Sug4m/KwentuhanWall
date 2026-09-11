@@ -212,6 +212,7 @@ button.kw-textlink {
   font-size: 13px; color: var(--text-dim); line-height: 1.55;
 }
 .kw-auth-note svg { color: var(--purple); }
+.kw-note-icon { flex-shrink: 0; margin-top: 1px; }
 
 /* TOAST */
 .kw-toast {
