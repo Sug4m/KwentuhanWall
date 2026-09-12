@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Write — KwentuhanWall</title>
+<link rel="stylesheet" href="write.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="kw">
+
+  <header class="kw-nav">
+    <div class="kw-nav-inner">
+      <div class="kw-logo">
+        <span class="kw-logo-mark">K</span>
+        <span>KwentuhanWall</span>
+      </div>
+
+      <nav class="kw-nav-links">
+        <a href="wall.html">The Wall</a>
+        <a href="write.html" class="kw-navlink-active">Write</a>
+        <a href="#mystory">My Story</a>
+      </nav>
+
+      <div class="kw-nav-actions">
+        <button class="kw-comfort-pill">Spiritual Comfort</button>
+        <div class="kw-menu-wrap">
+          <button class="kw-icon-btn" id="hamburgerBtn" aria-label="Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+          </button>
+          <div class="kw-hamburger-menu" id="hamburgerMenu" hidden></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="kw-write-page">
+    <h1>Share Your Thoughts</h1>
+    <p class="kw-write-sub">Your identity remains completely hidden. Share your experiences or perspectives safely.</p>
+
+    <form class="kw-card kw-write-card" id="writeForm">
+      <label class="kw-label">YOUR STORY</label>
+      <textarea
+        class="kw-textarea"
+        id="storyText"
+        placeholder="Write your post here... Your real identity is protected and hidden from view."
+        maxlength="600"
+        required
+      ></textarea>
+
+      <label class="kw-label">CHOOSE A CATEGORY</label>
+      <div class="kw-cat-pills" id="catPills">
+        <button type="button" class="kw-cat-pill kw-cat-pill-active" data-category="Love Life">Love Life</button>
+        <button type="button" class="kw-cat-pill" data-category="Career">Career</button>
+        <button type="button" class="kw-cat-pill" data-category="Family">Family</button>
+        <button type="button" class="kw-cat-pill" data-category="School">School</button>
+        <button type="button" class="kw-cat-pill" data-category="Mental Health">Mental Health</button>
+        <button type="button" class="kw-cat-pill" data-category="Others">Others</button>
+      </div>
+
+      <label class="kw-label">IDENTITY</label>
+      <div class="kw-identity-box" id="identityBox">Anonymous</div>
+
+      <p class="kw-fine-print">
+        By clicking "Post Now," you agree that no personal information of others (such as names, numbers, or addresses)
+        is included in your story to keep everyone safe.
+      </p>
+
+      <div class="kw-write-footer-row">
+        <button type="button" class="kw-help-link" id="safetyHelpBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          How to post safely?
+        </button>
+        <button type="submit" class="kw-btn kw-btn-primary">Post Now</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="kw-footer">
+    <div class="kw-footer-inner">
+      <div>
+        <div class="kw-footer-brand">KwentuhanWall</div>
+        <p>A secure, anonymous platform built for open discussions and shared perspectives.</p>
+      </div>
+      <div class="kw-footer-links">
+        <span class="kw-footer-head">SUPPORT</span>
+        <a href="#hotlines">Hotlines</a>
+        <a href="#terms">Terms of Use</a>
+        <a href="#privacy">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="kw-footer-bottom">
+      <span>© 2024 Kwentuhan Wall. Thank you for listening and understanding.</span>
+      <span>Built with care for fellow people.</span>
+    </div>
+  </footer>
+
+  <div class="kw-toast" id="toast" hidden></div>
+
+  <script src="write.js"></script>
+</body>
+</html>

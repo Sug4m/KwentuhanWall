@@ -12,6 +12,50 @@ const friendsEmpty = document.getElementById("friendsEmpty");
 const loadSentinel = document.getElementById("loadSentinel");
 const toast = document.getElementById("toast");
 const tabs = document.querySelectorAll(".kw-tab");
+const storiesCountEl = document.getElementById("storiesCount");
+
+const CATEGORY_ROW_MAP = {
+  "Love Life": "kw-dot-lovelife",
+  "Career": "kw-dot-career",
+  "Family": "kw-dot-family",
+  "School": "kw-dot-school",
+  "Mental Health": "kw-dot-mentalhealth",
+  "Others": "kw-dot-others",
+};
+
+let lastPosts = [];
+
+/* ---- Kunin ang totoong mga post mula sa MySQL (backend/posts.php) ---- */
+async function loadPosts(category = null) {
+  try {
+    const url = category
+      ? `backend/posts.php?category=${encodeURIComponent(category)}`
+      : "backend/posts.php";
+    const res = await fetch(url);
+    const data = await res.json();
+
+    lastPosts = data.posts;
+    renderPostList(lastPosts);
+
+    storiesCountEl.textContent = `${data.totalThisWeek} Stories This Week`;
+
+    document.querySelectorAll(".kw-cat-row").forEach((row) => {
+      const count = data.categoryCounts[row.dataset.category] ?? 0;
+      row.querySelector(".kw-cat-count").textContent = count;
+    });
+  } catch (err) {
+    showToast("Hindi makuha ang mga kwento. Siguraduhing tumatakbo ang XAMPP.");
+  }
+}
+
+function renderPostList(posts) {
+  postList.innerHTML = "";
+  posts.forEach(renderPost);
+  emptyState.hidden = posts.length > 0;
+}
+
+loadPosts();
+
 
 /* ---- Reflect logged-in state (from index.html's Gmail login) inside the hamburger dropdown ---- */
 const hamburgerBtn = document.getElementById("hamburgerBtn");
@@ -69,9 +113,7 @@ catRows.forEach((row) => {
   row.addEventListener("click", () => {
     catRows.forEach((r) => r.classList.remove("kw-cat-row-active"));
     row.classList.add("kw-cat-row-active");
-    showToast(`Wala pang kwento sa "${row.dataset.category}" ngayon.`);
-    // TODO: kapag may totoong posts na sa backend, dito na i-filter
-    // ang #postList base sa row.dataset.category.
+    loadPosts(row.dataset.category);
   });
 });
 
@@ -89,8 +131,10 @@ tabs.forEach((tab) => {
     } else {
       friendsEmpty.hidden = true;
       postList.hidden = false;
-      // Walang laman pa rin ang alinmang tab hangga't walang totoong posts.
-      emptyState.hidden = postList.children.length > 0;
+      const list = which === "popular"
+        ? [...lastPosts].sort((a, b) => b.comfort - a.comfort)
+        : lastPosts;
+      renderPostList(list);
     }
   });
 });
