@@ -40,7 +40,10 @@ async function loadPosts(category = null) {
     storiesCountEl.textContent = `${data.totalThisWeek} Stories This Week`;
 
     document.querySelectorAll(".kw-cat-row").forEach((row) => {
-      const count = data.categoryCounts[row.dataset.category] ?? 0;
+      const cat = row.dataset.category;
+      const count = cat
+        ? (data.categoryCounts[cat] ?? 0)
+        : Object.values(data.categoryCounts).reduce((sum, n) => sum + n, 0);
       row.querySelector(".kw-cat-count").textContent = count;
     });
   } catch (err) {
@@ -179,10 +182,32 @@ function renderPost(post) {
     </div>
   `;
 
-  // Heart / comfort reaction
-  card.querySelector(".kw-heart-btn").addEventListener("click", () => {
-    const span = card.querySelector(".kw-heart-btn span");
-    span.textContent = parseInt(span.textContent, 10) + 1;
+  // Heart / comfort reaction — totoo na, nagse-save sa MySQL
+  card.querySelector(".kw-heart-btn").addEventListener("click", async () => {
+    const stored = localStorage.getItem("kwentuhanwall_user");
+    if (!stored) {
+      showToast("Kailangan mo munang mag-login para makapagbigay ng ginhawa.");
+      return;
+    }
+    const user = JSON.parse(stored);
+
+    try {
+      const res = await fetch("backend/reactions.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ post_id: post.id, user_id: user.id }),
+      });
+      const data = await res.json();
+      const span = card.querySelector(".kw-heart-btn span");
+
+      if (data.alreadyReacted) {
+        showToast("Nabigyan mo na ng ginhawa ang post na ito.");
+      } else {
+        span.textContent = data.comfort;
+      }
+    } catch (err) {
+      showToast("Hindi makonekta sa server.");
+    }
   });
 
   // Kebab (⋮) menu open/close
